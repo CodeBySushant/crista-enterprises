@@ -1,0 +1,51 @@
+export const industries = [
+  {
+    id: 'infrastructure',
+    name: 'Infrastructure',
+    image: 'powerLines',
+    summary: 'Street and area lighting for roads, highways, townships and public works.',
+    products: ['LED Street Lights', 'Solar Street Lights', 'LED Flood Lights'],
+  },
+  {
+    id: 'construction',
+    name: 'Construction',
+    image: 'constructionCrane',
+    summary: 'Site floodlighting and permanent lighting packages for building projects.',
+    products: ['LED Flood Lights', 'LED Street Lights'],
+  },
+  {
+    id: 'industrial',
+    name: 'Industrial Facilities',
+    image: 'warehouse',
+    summary: 'High-bay and yard lighting for factories, warehouses and logistics hubs.',
+    products: ['LED High Bay', 'LED Flood Lights'],
+  },
+  {
+    id: 'commercial',
+    name: 'Commercial Establishments',
+    image: 'commercial',
+    summary: 'Façade, parking and campus lighting for offices, retail and mixed-use sites.',
+    products: ['LED Flood Lights', 'LED Street Lights'],
+  },
+  {
+    id: 'education',
+    name: 'Educational Institutions',
+    image: 'campus',
+    summary: 'Campus lighting and institutional gym fit-outs for schools and colleges.',
+    products: ['Solar Street Lights', 'Strength Equipment', 'Cardio Equipment'],
+  },
+  {
+    id: 'fitness',
+    name: 'Fitness Centres',
+    image: 'gymWide',
+    summary: 'Complete commercial gym floors — cardio, strength, free weights and flooring.',
+    products: ['Cardio Equipment', 'Strength Equipment', 'Weight Training'],
+  },
+  {
+    id: 'hospitality',
+    name: 'Hospitality',
+    image: 'hotel',
+    summary: 'Hotel fitness rooms plus exterior, driveway and landscape lighting.',
+    products: ['Cardio Equipment', 'LED Flood Lights', 'Solar Street Lights'],
+  },
+];

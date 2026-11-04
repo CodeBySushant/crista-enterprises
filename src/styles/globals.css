@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core palette */
+  --c-ink: #17191c;        /* primary — deep charcoal */
+  --c-charcoal: #202124;   /* text */
+  --c-text: #202124;
+  --c-muted: #777d83;
+  --c-line: #e5e7e8;
+  --c-paper: #f7f7f5;      /* warm off-white */
+  --c-mist: #f0f1f0;       /* secondary background */
+  --c-white: #ffffff;
+
+  /* Accent — taken from the Crista logo green */
+  --c-accent: #2fc56a;
+  --c-accent-ink: #0d8a4b;  /* AA-compliant on light backgrounds */
+  --c-accent-soft: #e6f6ec;
+
+  --header-h: 72px;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    @apply bg-paper text-text font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { @apply font-display text-ink; letter-spacing: -0.02em; }
+  ::selection { background: var(--c-accent); color: var(--c-ink); }
+  :focus-visible { outline: 2px solid var(--c-accent-ink); outline-offset: 2px; }
+  img { max-width: 100%; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-10; }
+  .eyebrow { @apply font-sans text-eyebrow font-medium uppercase text-muted; }
+  .display-xl { @apply font-display font-medium text-[2.5rem] leading-[1.02] sm:text-6xl lg:text-[5.25rem]; letter-spacing: -0.035em; }
+  .display-lg { @apply font-display font-medium text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.5rem]; letter-spacing: -0.03em; }
+  .display-md { @apply font-display font-medium text-[1.75rem] leading-[1.12] sm:text-4xl; letter-spacing: -0.025em; }
+  .lede { @apply text-base leading-relaxed text-muted sm:text-lg; }
+  .rule { @apply h-px w-full bg-line; }
+
+  .field-label { @apply mb-1.5 block text-[13px] font-medium text-charcoal; }
+  .field {
+    @apply block w-full rounded-sm border border-line bg-white px-3.5 py-3 text-[15px] text-charcoal
+           placeholder:text-[#a3a8ad] transition-colors duration-150
+           hover:border-[#cfd3d6] focus:border-ink focus:outline-none focus:ring-0;
+  }
+  .field[aria-invalid='true'] { @apply border-[#c2410c]; }
+  .field-error { @apply mt-1.5 text-[13px] text-[#c2410c]; }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.3s cubic-bezier(.2,.7,.2,1);
+  }
+  .link-underline:hover, .link-underline:focus-visible { background-size: 100% 1px; }
+
+  .tech-grid {
+    background-image:
+      linear-gradient(to right, rgba(23,25,28,0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23,25,28,0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .tech-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
