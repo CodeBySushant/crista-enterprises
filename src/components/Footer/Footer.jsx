@@ -19,12 +19,17 @@ function Column({ title, children }) {
 
 const linkCls = 'link-underline text-[14px] text-white/80 transition-colors hover:text-white';
 
-function Placeholder({ children }) {
-  return (
-    <span className="text-white/80">
-      {children}
-      <span className="ml-2 align-middle text-[10px] uppercase tracking-[0.14em] text-white/35">placeholder</span>
-    </span>
+function ContactValue({ item }) {
+  const body = (
+    <>
+      {item.value}
+      {item.placeholder && <span className="ml-2 align-middle text-[10px] uppercase tracking-[0.14em] text-white/35">placeholder</span>}
+    </>
+  );
+  return item.href ? (
+    <a href={item.href} className="link-underline break-words text-white/80 transition-colors hover:text-white">{body}</a>
+  ) : (
+    <span className="text-white/80">{body}</span>
   );
 }
 
@@ -101,10 +106,10 @@ export default function Footer() {
         </div>
         <div className="col-span-2 md:col-span-1 lg:col-span-3">
           <Column title="Contact">
-            <li className="flex gap-3 text-[14px]"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><Placeholder>{contact.email.value}</Placeholder></li>
-            <li className="flex gap-3 text-[14px]"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><Placeholder>{contact.phone.value}</Placeholder></li>
-            <li className="flex gap-3 text-[14px]"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><Placeholder>{contact.address.value}</Placeholder></li>
-            <li className="flex gap-3 text-[14px]"><Clock className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><span className="text-white/80">{contact.hours.value}</span></li>
+            <li className="flex gap-3 text-[14px]"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.email} /></li>
+            <li className="flex gap-3 text-[14px]"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.phone} /></li>
+            <li className="flex gap-3 text-[14px]"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.address} /></li>
+            <li className="flex gap-3 text-[14px]"><Clock className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.hours} /></li>
           </Column>
         </div>
       </div>

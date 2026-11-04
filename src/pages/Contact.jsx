@@ -45,7 +45,7 @@ export default function Contact() {
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-ink" strokeWidth={1.5} aria-hidden="true" />
                   <div>
                     <p className="text-[12px] uppercase tracking-[0.12em] text-muted">{LABELS[k]}</p>
-                    <p className="mt-1 text-[15px] text-ink">{v.value}</p>
+                    <p className="mt-1 text-[15px] text-ink">{v.href ? <a href={v.href} className="hover:text-accent-ink">{v.value}</a> : v.value}</p>
                     {v.placeholder && <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-muted/80">Placeholder — to be updated</p>}
                   </div>
                 </li>

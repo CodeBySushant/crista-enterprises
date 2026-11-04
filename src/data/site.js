@@ -1,7 +1,6 @@
 /**
- * Company details. Contact values are deliberately PLACEHOLDERS —
- * replace with official details before launch. `placeholder: true`
- * lets the UI mark them visually.
+ * Company details. Set `placeholder: true` on any contact value
+ * to mark it visually as unconfirmed.
  */
 export const site = {
   name: 'Crista Enterprises',
@@ -9,10 +8,10 @@ export const site = {
   description:
     'Crista Enterprises supplies commercial and industrial LED lighting and commercial gym equipment to contractors, institutions, facilities and dealers.',
   contact: {
-    email: { value: 'sales@[your-domain]', placeholder: true },
-    phone: { value: '+91 [business phone]', placeholder: true },
-    address: { value: '[Registered business address]', placeholder: true },
-    hours: { value: 'Mon – Sat, business hours', placeholder: true },
+    email: { value: 'contact@cristaenterprises.com', href: 'mailto:contact@cristaenterprises.com' },
+    phone: { value: '+91 82712 78494', href: 'tel:+918271278494' },
+    address: { value: 'Bhopal, Madhya Pradesh' },
+    hours: { value: 'Mon – Sat, business hours' },
   },
   social: [
     { id: 'linkedin', label: 'LinkedIn', href: '#' },
