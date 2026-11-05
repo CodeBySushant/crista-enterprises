@@ -188,7 +188,7 @@ export default function EnquiryForm({ variant = 'quote', initial = {}, onDone, c
         </div>
       </Field>
       <Field id={id('message')} label={isContact ? 'Message' : 'Additional requirements'} required={required.includes('message')} error={err('message')} className="sm:col-span-2 md:col-span-2" hint="Specifications, site details, timelines or delivery location help us respond accurately.">
-        <textarea {...fieldProps('message')} rows={compact ? 3 : 5} placeholder={isContact ? 'Tell us what your business needs…' : 'e.g. colour temperature, pole height, project location, delivery timeline'} />
+        <textarea {...fieldProps('message')} rows={compact ? 3 : 5} placeholder={isContact ? 'Tell us what your business needs…' : gymProducts.some((g) => g.slug === values.product) || values.product === 'general-gym' ? 'e.g. facility type, floor space, upholstery colour, delivery timeline' : 'e.g. colour temperature, pole height, project location, delivery timeline'} />
       </Field>
       <div className="flex flex-col-reverse items-start gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between md:col-span-2">
         <p className="text-[12px] leading-relaxed text-muted">By submitting, you agree to be contacted about this enquiry.</p>

@@ -1,5 +1,6 @@
 import { SearchX } from 'lucide-react';
 import ProductCard from '../ProductCard/ProductCard';
+import GymProductCard from '../ProductCard/GymProductCard';
 import Button from '../Buttons/Button';
 import cn from '../../utils/cn';
 
@@ -17,7 +18,7 @@ export default function ProductGrid({ products, onReset, cols = 'sm:grid-cols-2 
   return (
     <ul className={cn('grid grid-cols-1 gap-4 lg:gap-5', cols, className)}>
       {products.map((p) => (
-        <li key={p.slug}><ProductCard product={p} /></li>
+        <li key={p.slug}>{p.division === 'gym' ? <GymProductCard product={p} /> : <ProductCard product={p} />}</li>
       ))}
     </ul>
   );

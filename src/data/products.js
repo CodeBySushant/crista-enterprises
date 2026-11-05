@@ -301,12 +301,30 @@ export const gymProducts = [
   }),
 ];
 
+/* Gym feature highlights (SAMPLE — replace with manufacturer data). */
+const GYM_FEATURES = {
+  'commercial-treadmill': ['Wide running deck with cushioned suspension', 'Programmable console with preset workouts', 'Motorised incline for hill training', 'Heart-rate grip sensors', 'Emergency safety stop key'],
+  'upright-exercise-bike': ['Step-through frame for easy access', 'Multi-level magnetic resistance', 'Self-generating — no power connection needed', 'Adjustable saddle and handlebar', 'Quiet, low-maintenance drive'],
+  'elliptical-cross-trainer': ['Natural, low-impact stride path', 'Synchronised moving handlebars', 'Multi-level magnetic resistance', 'Large anti-slip foot pedals', 'Console with workout feedback'],
+  'air-rowing-machine': ['Fan resistance that scales with effort', 'Adjustable air damper', 'Aluminium monorail with smooth seat travel', 'Performance monitor', 'Folds or stands for storage'],
+  'chest-press-machine': ['Converging press path for natural movement', 'Independent arm movement', 'Multi-position handgrips', 'Adjustable seat with clear setting indicators', 'Enclosed, shrouded weight stack'],
+  'lat-pulldown-low-row': ['Lat pulldown and seated row in one station', 'Thigh hold-down and footplate', 'Shared selectorised weight stack', 'Interchangeable handles', 'Space-efficient footprint'],
+  'leg-press-hack-squat': ['45° sled on linear bearings', 'Large anti-slip footplate', 'Adjustable back pad', 'Multi-position safety stops', 'Integrated plate storage horns'],
+  'cable-crossover': ['Twin selectorised weight stacks', 'Height-adjustable pulleys', 'Central multi-grip pull-up bar', 'Wide range of functional movements', 'Accessory storage hooks'],
+  'power-rack': ['Numbered uprights for quick setup', 'Adjustable safety spotter arms', 'Steel J-hooks with protective liners', 'Multi-grip pull-up bar', 'Plate storage pegs'],
+  'adjustable-bench': ['Flat, incline and decline positions', 'Wide, stable base', 'High-density padding', 'Transport wheels and handle', 'Quick-adjust seat'],
+  'hex-dumbbell-set': ['Hexagonal heads prevent rolling', 'Rubber encasing protects floors', 'Knurled chrome handles', 'Clearly marked weights', 'Matching storage racks available'],
+  'kettlebell-set': ['Single-piece cast iron construction', 'Smooth, wide handle', 'Flat base for stable storage', 'Colour-coded or marked weights', 'Suited to group and functional training'],
+  'rubber-gym-flooring': ['Shock-absorbing high-density rubber', 'Reduces noise and vibration', 'Protects sub-floors from dropped weights', 'Interlocking or loose-lay options', 'Easy to clean and maintain'],
+};
+
 /* ---------- Shared ---------- */
 const withMeta = (p) => ({
   ...p,
   specStatus: 'sample',
   categoryName: [...LIGHTING_CATEGORIES, ...GYM_CATEGORIES].find((c) => c.slug === p.category)?.name ?? '',
   url: `/products/${p.slug}`,
+  features: p.features ?? GYM_FEATURES[p.slug] ?? [],
 });
 
 export const products = [...lightingProducts, ...gymProducts].map(withMeta);

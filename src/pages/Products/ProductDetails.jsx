@@ -10,6 +10,7 @@ import Reveal from '../../components/Common/Reveal';
 import { getProduct, getRelated, DIVISIONS } from '../../data/products';
 import { useQuote } from '../../context/QuoteContext';
 import NotFound from '../NotFound';
+import GymProductDetail from '../../components/ProductDetail/GymProductDetail';
 
 function SampleNotice({ className }) {
   return (
@@ -27,6 +28,7 @@ export default function ProductDetails() {
   usePageMeta(p?.name ?? 'Product not found', p ? `${p.name} — ${p.summary} Request a quote from Crista Enterprises.` : undefined);
 
   if (!p) return <NotFound />;
+  if (p.division === 'gym') return <GymProductDetail product={p} />;
 
   const division = DIVISIONS[p.division];
   const related = getRelated(p, 4);

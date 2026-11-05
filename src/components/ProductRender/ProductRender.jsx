@@ -441,7 +441,7 @@ export default function ProductRender({ kind, size, view = 'studio', label, clas
   const Comp = RENDERERS[kind] ?? FloodLight;
   const viewBox = view === 'detail' ? DETAIL_BOX[kind] ?? '0 0 400 300' : '0 0 400 300';
   return (
-    <div className={cn('relative h-full w-full', tone === 'dark' ? 'bg-[#e9ebec]' : 'bg-mist', view === 'technical' && 'tech-grid', className)}>
+    <div className={cn('relative h-full w-full', tone === 'dark' ? 'bg-[#e9ebec]' : tone === 'none' ? 'bg-transparent' : 'bg-mist', view === 'technical' && 'tech-grid', className)}>
       <svg viewBox={viewBox} className="absolute inset-0 h-full w-full" role="img" aria-label={label ? `${label} — product render` : 'Product render'} preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id={`${gid}-lens`} x1="0" y1="0" x2="0" y2="1">
