@@ -5,8 +5,8 @@ import { useQuote } from '../../context/QuoteContext';
 import cn from '../../utils/cn';
 
 /**
- * Showroom-style gym equipment tile: product floating on a light-to-graphite
- * gradient, name and actions set on the dark base.
+ * Showroom-style product tile (used for gym and lighting): product floating on
+ * a light-to-graphite gradient, name and actions set on the dark base.
  */
 export default function GymProductCard({ product: p, className }) {
   const { openQuote } = useQuote();
@@ -21,6 +21,9 @@ export default function GymProductCard({ product: p, className }) {
       )}
     >
       <span className="absolute left-4 top-4 z-[1] text-[11px] font-medium uppercase tracking-[0.14em] text-ink/50">{p.categoryName}</span>
+      {p.division === 'lighting' && p.wattage && (
+        <span className="absolute right-4 top-3.5 z-[1] font-display text-[14px] font-semibold tabular text-ink/70">{p.wattage}W</span>
+      )}
 
       <div className="absolute inset-x-[6%] top-[9%] h-[56%] transition-transform duration-700 ease-brand group-hover/card:-translate-y-1 group-hover/card:scale-[1.04]">
         <ProductRender kind={p.render.kind} size={p.render.size} label={p.name} tone="none" />
