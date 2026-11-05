@@ -8,6 +8,7 @@ import { mainNav, productMenu } from '../../data/navigation';
 import useLockBody from '../../hooks/useLockBody';
 import useEscape from '../../hooks/useEscape';
 import cn from '../../utils/cn';
+import GiftingLink from './GiftingLink';
 
 export default function MobileDrawer({ open, onClose, onQuote, onSearch }) {
   const [expanded, setExpanded] = useState(null);
@@ -95,6 +96,9 @@ export default function MobileDrawer({ open, onClose, onQuote, onSearch }) {
                     ),
                   )}
                 </ul>
+                <div className="border-t border-line pb-6 pt-5">
+                  <GiftingLink variant="drawer" onClick={onClose} />
+                </div>
               </nav>
             </div>
 

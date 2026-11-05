@@ -6,6 +6,13 @@ export const mainNav = [
   { label: 'Contact Us', to: '/contact' },
 ];
 
+/** Corporate Gifting vertical — shown as a distinct button, kept out of mainNav. */
+export const giftingNav = {
+  label: 'Gifting',
+  to: '/corporate-gifting',
+  description: 'Corporate & festival gifting',
+};
+
 /** Mega menu columns — one per division. */
 export const productMenu = [
   {

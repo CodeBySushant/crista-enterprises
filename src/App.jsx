@@ -12,6 +12,7 @@ const Lighting = lazy(() => import('./pages/Products/Lighting'));
 const GymEquipment = lazy(() => import('./pages/Products/GymEquipment'));
 const AllProducts = lazy(() => import('./pages/Products/AllProducts'));
 const ProductDetails = lazy(() => import('./pages/Products/ProductDetails'));
+const CorporateGifting = lazy(() => import('./pages/CorporateGifting'));
 const Legal = lazy(() => import('./pages/Legal'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="products/lighting" element={<Lighting />} />
               <Route path="products/gym-equipment" element={<GymEquipment />} />
               <Route path="products/:slug" element={<ProductDetails />} />
+              <Route path="corporate-gifting" element={<CorporateGifting />} />
               <Route path="privacy-policy" element={<Legal kind="privacy" />} />
               <Route path="terms" element={<Legal kind="terms" />} />
               <Route path="*" element={<NotFound />} />

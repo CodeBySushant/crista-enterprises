@@ -7,13 +7,14 @@ import Button from '../Buttons/Button';
 import MegaMenu from '../MegaMenu/MegaMenu';
 import MobileDrawer from './MobileDrawer';
 import SearchOverlay from './SearchOverlay';
+import GiftingLink from './GiftingLink';
 import { mainNav } from '../../data/navigation';
 import { useQuote } from '../../context/QuoteContext';
 import useEscape from '../../hooks/useEscape';
 import cn from '../../utils/cn';
 
 const itemBase =
-  'relative inline-flex h-full items-center gap-1 px-3.5 text-[14px] font-medium tracking-[-0.005em] transition-colors duration-150 xl:px-4';
+  'relative inline-flex h-full items-center gap-1 whitespace-nowrap px-3.5 text-[14px] font-medium tracking-[-0.005em] transition-colors duration-150 xl:px-4';
 
 function ActiveBar({ show }) {
   return (
@@ -127,6 +128,9 @@ export default function Navbar() {
                     </li>
                   ),
                 )}
+                <li className="flex h-full items-center pl-2 xl:pl-3" onMouseEnter={scheduleClose}>
+                  <GiftingLink />
+                </li>
               </ul>
             </nav>
 
